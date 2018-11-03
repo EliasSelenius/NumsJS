@@ -1,14 +1,14 @@
 
 namespace Nums {
 
-    export interface IVec {
-        add(): IVec;
-        sub(): IVec;
-        mul(): IVec;
-        div(): IVec;
+    export interface IVec<Vec> {
+        add(vec: Vec): Vec;
+        sub(vec: Vec): Vec;
+        mul(vec: Vec): Vec;
+        div(vec: Vec): Vec;
 
-        Normalize(): IVec;
-        Normalized(): IVec;
+        Normalize(): Vec;
+        Normalized(): Vec;
         
         Magnitude(): number;
 

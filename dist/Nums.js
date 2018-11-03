@@ -9,17 +9,17 @@ var Nums;
             this.x = x;
             this.y = y;
         }
-        Vec2.prototype.add = function () {
-            throw new Error("Method not implemented.");
+        Vec2.prototype.add = function (vec) {
+            return new Vec2(this.x + vec.x, this.y + vec.y);
         };
-        Vec2.prototype.sub = function () {
-            throw new Error("Method not implemented.");
+        Vec2.prototype.sub = function (vec) {
+            return new Vec2(this.x - vec.x, this.y - vec.y);
         };
-        Vec2.prototype.mul = function () {
-            throw new Error("Method not implemented.");
+        Vec2.prototype.mul = function (vec) {
+            return new Vec2(this.x * vec.x, this.y * vec.y);
         };
-        Vec2.prototype.div = function () {
-            throw new Error("Method not implemented.");
+        Vec2.prototype.div = function (vec) {
+            return new Vec2(this.x / vec.x, this.y / vec.y);
         };
         Vec2.prototype.Normalize = function () {
             throw new Error("Method not implemented.");
@@ -47,17 +47,17 @@ var Nums;
             this.y = y;
             this.z = z;
         }
-        Vec3.prototype.add = function () {
-            throw new Error("Method not implemented.");
+        Vec3.prototype.add = function (vec) {
+            return new Vec3(this.x + vec.x, this.y + vec.y, this.z + vec.z);
         };
-        Vec3.prototype.sub = function () {
-            throw new Error("Method not implemented.");
+        Vec3.prototype.sub = function (vec) {
+            return new Vec3(this.x - vec.x, this.y - vec.y, this.z - vec.z);
         };
-        Vec3.prototype.mul = function () {
-            throw new Error("Method not implemented.");
+        Vec3.prototype.mul = function (vec) {
+            return new Vec3(this.x * vec.x, this.y * vec.y, this.z * vec.z);
         };
-        Vec3.prototype.div = function () {
-            throw new Error("Method not implemented.");
+        Vec3.prototype.div = function (vec) {
+            return new Vec3(this.x / vec.x, this.y / vec.y, this.z / vec.z);
         };
         Vec3.prototype.Normalize = function () {
             throw new Error("Method not implemented.");
@@ -88,17 +88,17 @@ var Nums;
             this.z = z;
             this.w = w;
         }
-        Vec4.prototype.add = function () {
-            throw new Error("Method not implemented.");
+        Vec4.prototype.add = function (vec) {
+            return new Vec4(this.x + vec.x, this.y + vec.y, this.z + vec.z, this.w + vec.w);
         };
-        Vec4.prototype.sub = function () {
-            throw new Error("Method not implemented.");
+        Vec4.prototype.sub = function (vec) {
+            return new Vec4(this.x - vec.x, this.y - vec.y, this.z - vec.z, this.w - vec.w);
         };
-        Vec4.prototype.mul = function () {
-            throw new Error("Method not implemented.");
+        Vec4.prototype.mul = function (vec) {
+            return new Vec4(this.x * vec.x, this.y * vec.y, this.z * vec.z, this.w * vec.w);
         };
-        Vec4.prototype.div = function () {
-            throw new Error("Method not implemented.");
+        Vec4.prototype.div = function (vec) {
+            return new Vec4(this.x / vec.x, this.y / vec.y, this.z / vec.z, this.w / vec.w);
         };
         Vec4.prototype.Normalize = function () {
             throw new Error("Method not implemented.");
