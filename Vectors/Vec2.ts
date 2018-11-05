@@ -1,33 +1,42 @@
 
+/// <reference path="Vec.ts"/>
+
 namespace Nums {
-    export class Vec2 implements IVec<Vec2> {
+    export class Vec2 extends Vec<Vec2> {
+        public x: number;
+        public y: number;
+
+        get Array(): number[] {
+            return [ this.x, this.y ];
+        }
+        set Array(v: number[]) {
+            this.x = v[0];
+            this.y = v[1];
+        }
+
+        constructor(x: number = 0, y: number = x) {
+            super();
+            this.x = x; this.y = y;
+            this.Init(this);
+        }
+
         add(vec: Vec2): Vec2 {
             return new Vec2(this.x + vec.x, this.y + vec.y);
         }
         sub(vec: Vec2): Vec2 {
             return new Vec2(this.x - vec.x, this.y - vec.y);
         }
-        mul(vec: Vec2): Vec2 {
+        mulByVec(vec: Vec2): Vec2 {
             return new Vec2(this.x * vec.x, this.y * vec.y);
         }
-        div(vec: Vec2): Vec2 {
+        mulByNum(v: number): Vec2 {
+            return new Vec2(this.x * v, this.y * v);
+        }
+        divByVec(vec: Vec2): Vec2 {
             return new Vec2(this.x / vec.x, this.y / vec.y);
         }
-        Normalize(): Vec2 {
-            throw new Error("Method not implemented.");
-        }
-        Normalized(): Vec2 {
-            throw new Error("Method not implemented.");
-        }
-        Magnitude(): number {
-            throw new Error("Method not implemented.");
-        }
-
-        public x: number = 0;
-        public y: number = 0;
-
-        constructor(x: number, y: number = x) {
-            this.x = x; this.y = y;
+        divByNum(v: number): Vec2 {
+            return new Vec2(this.x / v, this.y / v);
         }
 
 

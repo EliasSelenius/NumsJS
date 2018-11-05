@@ -9,17 +9,23 @@
     <script src="dist/Nums.js"></script>
 </head>
 <body>
-    <h1>Hello From Html</h1>
+    <h1>Hello From Html (Hot Reload: tsc --watch -p d:\Documents\repos\NumsJS\tsconfig.json)</h1>
     <script>
-        console.log(Nums);
 
-        console.log(new Nums.Vec3(10, 30, 26));
+        let v = new Nums.Vec2(10, 10);
+        let m = v.Magnitude;
+        console.log(v);
+        console.log(v.Normalize());
+        console.log(v);
 
-        let myVec = new Nums.Vec4(60, 23, 24, 654);
-        console.log(myVec);
-        console.log(myVec.add(new Nums.Vec4(29, 20, -145, 1000)));
+        console.log(m);
 
-        console.log(new Nums.Vec2(10, 3).add({ x: 23, y: 100}).mul({x: 20}).div({ x: 2}));
+        v = v.mulByNum(m);
+        console.log(v);
+
+        console.log(v.AngleTo(new Nums.Vec2(1, 0)));
+        console.log(v);
+        
 
     </script>
 </body>

@@ -1,35 +1,42 @@
 
 namespace Nums {
-    export class Vec3 implements IVec<Vec3> {
+    export class Vec3 extends Vec<Vec3>{
+        public x: number;
+        public y: number;
+        public z: number;
+
+        get Array(): number[] {
+            return [ this.x, this.y, this.z ];
+        }
+        set Array(v: number[]) {
+            this.x = v[0];
+            this.y = v[1];
+            this.z = v[2];
+        }
+
+        constructor(x: number = 0, y: number = x, z: number = x) {
+            super();
+            this.Init(this);
+            this.x = x; this.y = y; this.z = z;
+        }
+
         add(vec: Vec3): Vec3 {
             return new Vec3(this.x + vec.x, this.y + vec.y, this.z + vec.z);
         }
         sub(vec: Vec3): Vec3 {
             return new Vec3(this.x - vec.x, this.y - vec.y, this.z - vec.z);
         }
-        mul(vec: Vec3): Vec3 {
+        mulByVec(vec: Vec3): Vec3 {
             return new Vec3(this.x * vec.x, this.y * vec.y, this.z * vec.z);
         }
-        div(vec: Vec3): Vec3 {
+        mulByNum(v: number): Vec3 {
+            return new Vec3(this.x * v, this.y * v, this.z * v);
+        }
+        divByVec(vec: Vec3): Vec3 {
             return new Vec3(this.x / vec.x, this.y / vec.y, this.z / vec.z);
         }
-        Normalize(): Vec3 {
-            throw new Error("Method not implemented.");
+        divByNum(v: number): Vec3 {
+            return new Vec3(this.x / v, this.y / v, this.z / v);
         }
-        Normalized(): Vec3 {
-            throw new Error("Method not implemented.");
-        }
-        Magnitude(): number {
-            throw new Error("Method not implemented.");
-        }
-        public x: number = 0;
-        public y: number = 0;
-        public z: number = 0;
-
-        constructor(x: number, y: number = x, z: number = x) {
-            this.x = x; this.y = y; this.z = z;
-        }
-
-
     }
 }

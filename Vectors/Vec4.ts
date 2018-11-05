@@ -1,7 +1,7 @@
 
 
 namespace Nums {
-    export class Vec4 implements IVec<Vec4> {
+    export class Vec4 {
         add(vec: Vec4): Vec4 {
             return new Vec4(this.x + vec.x, this.y + vec.y, this.z + vec.z, this.w + vec.w);
         }
@@ -29,7 +29,7 @@ namespace Nums {
         public z: number = 0;
         public w: number = 0;
 
-        constructor(x: number, y: number = x, z: number = x, w: number = x) {
+        constructor(x: number = 0, y: number = x, z: number = x, w: number = x) {
             this.x = x; this.y = y; this.z = z; this.w = w;
         }
 
