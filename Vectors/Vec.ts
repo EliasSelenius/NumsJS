@@ -3,7 +3,6 @@ namespace Nums {
     export abstract class Vec<T extends Vec<T>> {
         private instance!: T;
         
-
         protected Init(inst: T): void {
             this.instance = inst;
         }
@@ -15,17 +14,25 @@ namespace Nums {
         abstract divByVec(vec: T): T;
         abstract divByNum(v: number): T;
 
+        abstract get Array(): number[];
+        abstract set Array(v: number[]);
+
+        addeq(vec: T): T {
+            this.Array = this.add(vec).Array;
+            return this.instance;
+        }
+        subeq(vec: T): T {
+            this.Array = this.sub(vec).Array
+            return this.instance;
+        }
+
         Normalize(): T {
             this.Array = this.Normalized.Array
             return this.instance;
         }
 
-        abstract get Array(): number[];
-        abstract set Array(v: number[]);
-
-
         Dot(vec: T): number {
-            return this.instance.mulByVec(vec).AddAggregated;
+            return this.mulByVec(vec).AddAggregated;
         }
 
         get AddAggregated(): number {

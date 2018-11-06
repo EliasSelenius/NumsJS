@@ -9,23 +9,16 @@
     <script src="dist/Nums.js"></script>
 </head>
 <body>
-    <h1>Hello From Html (Hot Reload: tsc --watch -p d:\Documents\repos\NumsJS\tsconfig.json)</h1>
+    <h1>Hello From Html (Hot Reload: tsc --watch -p .\tsconfig.json)</h1>
     <script>
 
         let v = new Nums.Vec2(10, 10);
-        let m = v.Magnitude;
-        console.log(v);
-        console.log(v.Normalize());
-        console.log(v);
-
-        console.log(m);
-
-        v = v.mulByNum(m);
-        console.log(v);
-
-        console.log(v.AngleTo(new Nums.Vec2(1, 0)));
+        v.addeq(new Nums.Vec2(20,20));
         console.log(v);
         
+        console.log(v.Magnitude);
+
+        console.log(v);
 
     </script>
 </body>

@@ -20,12 +20,20 @@ var Nums;
         Vec.prototype.Init = function (inst) {
             this.instance = inst;
         };
+        Vec.prototype.addeq = function (vec) {
+            this.Array = this.add(vec).Array;
+            return this.instance;
+        };
+        Vec.prototype.subeq = function (vec) {
+            this.Array = this.sub(vec).Array;
+            return this.instance;
+        };
         Vec.prototype.Normalize = function () {
             this.Array = this.Normalized.Array;
             return this.instance;
         };
         Vec.prototype.Dot = function (vec) {
-            return this.instance.mulByVec(vec).AddAggregated;
+            return this.mulByVec(vec).AddAggregated;
         };
         Object.defineProperty(Vec.prototype, "AddAggregated", {
             get: function () {
