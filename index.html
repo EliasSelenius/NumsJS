@@ -7,18 +7,30 @@
     <title>Document</title>
 
     <script src="dist/Nums.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <h1>Hello From Html (Hot Reload: tsc --watch -p .\tsconfig.json)</h1>
     <script>
 
-        let v = new Nums.Vec2(10, 10);
-        v.addeq(new Nums.Vec2(20,20));
+        let v = new Nums.Vec3(10, 10, 4509);
         console.log(v);
         
-        console.log(v.Magnitude);
+        console.log(new Nums.Vec3(22, 0, 1).Normalized);
 
-        console.log(v);
+        setTimeout(() => {
+            v.x = 200;    
+            console.log(v);   
+        }, 5000);
+
+
+        
 
     </script>
 </body>

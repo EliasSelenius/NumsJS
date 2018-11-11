@@ -1,12 +1,9 @@
 
 namespace Nums {
     export abstract class Vec<T extends Vec<T>> {
-        private instance!: T;
         
-        protected Init(inst: T): void {
-            this.instance = inst;
-        }
-
+        protected abstract get instance(): T;
+        
         abstract add(vec: T): T;
         abstract sub(vec: T): T;
         abstract mulByVec(vec: T): T;
@@ -16,6 +13,7 @@ namespace Nums {
 
         abstract get Array(): number[];
         abstract set Array(v: number[]);
+
 
         addeq(vec: T): T {
             this.Array = this.add(vec).Array;

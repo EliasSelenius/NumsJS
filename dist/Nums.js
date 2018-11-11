@@ -17,9 +17,6 @@ var Nums;
     var Vec = /** @class */ (function () {
         function Vec() {
         }
-        Vec.prototype.Init = function (inst) {
-            this.instance = inst;
-        };
         Vec.prototype.addeq = function (vec) {
             this.Array = this.add(vec).Array;
             return this.instance;
@@ -104,9 +101,15 @@ var Nums;
             var _this = _super.call(this) || this;
             _this.x = x;
             _this.y = y;
-            _this.Init(_this);
             return _this;
         }
+        Object.defineProperty(Vec2.prototype, "instance", {
+            get: function () {
+                return this;
+            },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(Vec2.prototype, "Array", {
             get: function () {
                 return [this.x, this.y];
@@ -149,12 +152,18 @@ var Nums;
             if (y === void 0) { y = x; }
             if (z === void 0) { z = x; }
             var _this = _super.call(this) || this;
-            _this.Init(_this);
             _this.x = x;
             _this.y = y;
             _this.z = z;
             return _this;
         }
+        Object.defineProperty(Vec3.prototype, "instance", {
+            get: function () {
+                return this;
+            },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(Vec3.prototype, "Array", {
             get: function () {
                 return [this.x, this.y, this.z];
@@ -191,43 +200,63 @@ var Nums;
 })(Nums || (Nums = {}));
 var Nums;
 (function (Nums) {
-    var Vec4 = /** @class */ (function () {
+    var Vec4 = /** @class */ (function (_super) {
+        __extends(Vec4, _super);
         function Vec4(x, y, z, w) {
             if (x === void 0) { x = 0; }
             if (y === void 0) { y = x; }
             if (z === void 0) { z = x; }
             if (w === void 0) { w = x; }
-            this.x = 0;
-            this.y = 0;
-            this.z = 0;
-            this.w = 0;
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = w;
+            var _this = _super.call(this) || this;
+            _this.x = 0;
+            _this.y = 0;
+            _this.z = 0;
+            _this.w = 0;
+            _this.x = x;
+            _this.y = y;
+            _this.z = z;
+            _this.w = w;
+            return _this;
         }
+        Object.defineProperty(Vec4.prototype, "instance", {
+            get: function () {
+                return this;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Vec4.prototype, "Array", {
+            get: function () {
+                return [this.x, this.y, this.z, this.w];
+            },
+            set: function (v) {
+                this.x = v[0];
+                this.x = v[1];
+                this.x = v[2];
+                this.x = v[3];
+            },
+            enumerable: true,
+            configurable: true
+        });
         Vec4.prototype.add = function (vec) {
             return new Vec4(this.x + vec.x, this.y + vec.y, this.z + vec.z, this.w + vec.w);
         };
         Vec4.prototype.sub = function (vec) {
             return new Vec4(this.x - vec.x, this.y - vec.y, this.z - vec.z, this.w - vec.w);
         };
-        Vec4.prototype.mul = function (vec) {
+        Vec4.prototype.mulByVec = function (vec) {
             return new Vec4(this.x * vec.x, this.y * vec.y, this.z * vec.z, this.w * vec.w);
         };
-        Vec4.prototype.div = function (vec) {
+        Vec4.prototype.mulByNum = function (v) {
+            throw new Error("Method not implemented.");
+        };
+        Vec4.prototype.divByVec = function (vec) {
             return new Vec4(this.x / vec.x, this.y / vec.y, this.z / vec.z, this.w / vec.w);
         };
-        Vec4.prototype.Normalize = function () {
-            throw new Error("Method not implemented.");
-        };
-        Vec4.prototype.Normalized = function () {
-            throw new Error("Method not implemented.");
-        };
-        Vec4.prototype.Magnitude = function () {
+        Vec4.prototype.divByNum = function (v) {
             throw new Error("Method not implemented.");
         };
         return Vec4;
-    }());
+    }(Nums.Vec));
     Nums.Vec4 = Vec4;
 })(Nums || (Nums = {}));

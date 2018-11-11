@@ -3,6 +3,11 @@
 
 namespace Nums {
     export class Vec2 extends Vec<Vec2> {
+
+        protected get instance(): Vec2 {
+            return this;
+        }
+
         public x: number;
         public y: number;
 
@@ -17,7 +22,6 @@ namespace Nums {
         constructor(x: number = 0, y: number = x) {
             super();
             this.x = x; this.y = y;
-            this.Init(this);
         }
 
         add(vec: Vec2): Vec2 {
@@ -38,7 +42,5 @@ namespace Nums {
         divByNum(v: number): Vec2 {
             return new Vec2(this.x / v, this.y / v);
         }
-
-
     }
 }

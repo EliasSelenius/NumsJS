@@ -1,6 +1,12 @@
 
 namespace Nums {
     export class Vec3 extends Vec<Vec3>{
+        
+        protected get instance(): Vec3 {
+            return this;
+        }
+
+
         public x: number;
         public y: number;
         public z: number;
@@ -16,7 +22,6 @@ namespace Nums {
 
         constructor(x: number = 0, y: number = x, z: number = x) {
             super();
-            this.Init(this);
             this.x = x; this.y = y; this.z = z;
         }
 
