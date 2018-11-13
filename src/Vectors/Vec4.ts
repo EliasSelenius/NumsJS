@@ -2,20 +2,15 @@
 
 namespace Nums {
     export class Vec4 extends Vec<Vec4> {
+
+        ToArray(): number[] {
+            return [ this.x, this.y, this.z, this.w ];
+        }
+
+
         protected get instance(): Vec4 {
             return this;
         }
-
-        get Array(): number[] {
-            return [ this.x, this.y, this.z, this.w ];
-        }
-        set Array(v: number[]) {
-            this.x = v[0];
-            this.x = v[1];
-            this.x = v[2];
-            this.x = v[3];
-        } 
-
 
         add(vec: Vec4): Vec4 {
             return new Vec4(this.x + vec.x, this.y + vec.y, this.z + vec.z, this.w + vec.w);

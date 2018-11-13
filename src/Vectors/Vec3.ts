@@ -1,6 +1,9 @@
 
 namespace Nums {
     export class Vec3 extends Vec<Vec3>{
+        ToArray(): number[] {
+            return [ this.x, this.y, this.z ];
+        }
         
         protected get instance(): Vec3 {
             return this;
@@ -10,15 +13,6 @@ namespace Nums {
         public x: number;
         public y: number;
         public z: number;
-
-        get Array(): number[] {
-            return [ this.x, this.y, this.z ];
-        }
-        set Array(v: number[]) {
-            this.x = v[0];
-            this.y = v[1];
-            this.z = v[2];
-        }
 
         constructor(x: number = 0, y: number = x, z: number = x) {
             super();

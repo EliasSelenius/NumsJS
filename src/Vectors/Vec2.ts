@@ -3,21 +3,20 @@
 
 namespace Nums {
     export class Vec2 extends Vec<Vec2> {
+        ToArray(): number[] {
+            return [ this.x, this.y ];
+        }
 
         protected get instance(): Vec2 {
             return this;
         }
+        protected set instance(vec: Vec2) {
+            this.x = vec.x;
+            this.y = vec.y;
+        }
 
         public x: number;
         public y: number;
-
-        get Array(): number[] {
-            return [ this.x, this.y ];
-        }
-        set Array(v: number[]) {
-            this.x = v[0];
-            this.y = v[1];
-        }
 
         constructor(x: number = 0, y: number = x) {
             super();

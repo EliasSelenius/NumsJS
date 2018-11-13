@@ -1,8 +1,10 @@
 
 namespace Nums {
-    export abstract class Vec<T extends Vec<T>> {
+    export abstract class Vec<T extends Vec<T>> implements IValueSet<number> {
+    
         
         protected abstract get instance(): T;
+        protected abstract set instance(vec: T);
         
         abstract add(vec: T): T;
         abstract sub(vec: T): T;
@@ -11,38 +13,38 @@ namespace Nums {
         abstract divByVec(vec: T): T;
         abstract divByNum(v: number): T;
 
-        abstract get Array(): number[];
-        abstract set Array(v: number[]);
+
+        abstract ToArray(): number[];
 
 
         addeq(vec: T): T {
-            this.Array = this.add(vec).Array;
+            this.instance = this.add(vec);
             return this.instance;
         }
         subeq(vec: T): T {
-            this.Array = this.sub(vec).Array
+            this.instance = this.sub(vec);
             return this.instance;
         }
 
         Normalize(): T {
-            this.Array = this.Normalized.Array
+            this.instance = this.Normalized;
             return this.instance;
         }
 
         Dot(vec: T): number {
-            return this.mulByVec(vec).AddAggregated;
+            return this.mulByVec(vec).AddAggregated();
         }
 
-        get AddAggregated(): number {
+        AddAggregated(): number {
             let res: number = 0;
-            for (const comp of this.Array) {
+            for (const comp of this.ToArray()) {
                 res += comp;
             }
             return res;
         }
-        get MulAggregated(): number {
+        MulAggregated(): number {
             let res: number = 1;
-            for (const comp of this.Array) {
+            for (const comp of this.ToArray()) {
                 res *= comp;
             }
             return res;
