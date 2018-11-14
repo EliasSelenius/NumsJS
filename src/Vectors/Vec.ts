@@ -17,6 +17,8 @@ namespace Nums {
         abstract ToArray(): number[];
 
 
+
+
         addeq(vec: T): T {
             this.instance = this.add(vec);
             return this.instance;

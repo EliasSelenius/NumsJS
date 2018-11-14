@@ -18,44 +18,36 @@ var Nums;
         function Vec() {
         }
         Vec.prototype.addeq = function (vec) {
-            this.Array = this.add(vec).Array;
+            this.instance = this.add(vec);
             return this.instance;
         };
         Vec.prototype.subeq = function (vec) {
-            this.Array = this.sub(vec).Array;
+            this.instance = this.sub(vec);
             return this.instance;
         };
         Vec.prototype.Normalize = function () {
-            this.Array = this.Normalized.Array;
+            this.instance = this.Normalized;
             return this.instance;
         };
         Vec.prototype.Dot = function (vec) {
-            return this.mulByVec(vec).AddAggregated;
+            return this.mulByVec(vec).AddAggregated();
         };
-        Object.defineProperty(Vec.prototype, "AddAggregated", {
-            get: function () {
-                var res = 0;
-                for (var _i = 0, _a = this.Array; _i < _a.length; _i++) {
-                    var comp = _a[_i];
-                    res += comp;
-                }
-                return res;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Vec.prototype, "MulAggregated", {
-            get: function () {
-                var res = 1;
-                for (var _i = 0, _a = this.Array; _i < _a.length; _i++) {
-                    var comp = _a[_i];
-                    res *= comp;
-                }
-                return res;
-            },
-            enumerable: true,
-            configurable: true
-        });
+        Vec.prototype.AddAggregated = function () {
+            var res = 0;
+            for (var _i = 0, _a = this.ToArray(); _i < _a.length; _i++) {
+                var comp = _a[_i];
+                res += comp;
+            }
+            return res;
+        };
+        Vec.prototype.MulAggregated = function () {
+            var res = 1;
+            for (var _i = 0, _a = this.ToArray(); _i < _a.length; _i++) {
+                var comp = _a[_i];
+                res *= comp;
+            }
+            return res;
+        };
         Object.defineProperty(Vec.prototype, "Normalized", {
             get: function () {
                 var m = this.Magnitude;
@@ -103,20 +95,16 @@ var Nums;
             _this.y = y;
             return _this;
         }
+        Vec2.prototype.ToArray = function () {
+            return [this.x, this.y];
+        };
         Object.defineProperty(Vec2.prototype, "instance", {
             get: function () {
                 return this;
             },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Vec2.prototype, "Array", {
-            get: function () {
-                return [this.x, this.y];
-            },
-            set: function (v) {
-                this.x = v[0];
-                this.y = v[1];
+            set: function (vec) {
+                this.x = vec.x;
+                this.y = vec.y;
             },
             enumerable: true,
             configurable: true
@@ -157,21 +145,12 @@ var Nums;
             _this.z = z;
             return _this;
         }
+        Vec3.prototype.ToArray = function () {
+            return [this.x, this.y, this.z];
+        };
         Object.defineProperty(Vec3.prototype, "instance", {
             get: function () {
                 return this;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Vec3.prototype, "Array", {
-            get: function () {
-                return [this.x, this.y, this.z];
-            },
-            set: function (v) {
-                this.x = v[0];
-                this.y = v[1];
-                this.z = v[2];
             },
             enumerable: true,
             configurable: true
@@ -218,22 +197,12 @@ var Nums;
             _this.w = w;
             return _this;
         }
+        Vec4.prototype.ToArray = function () {
+            return [this.x, this.y, this.z, this.w];
+        };
         Object.defineProperty(Vec4.prototype, "instance", {
             get: function () {
                 return this;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Vec4.prototype, "Array", {
-            get: function () {
-                return [this.x, this.y, this.z, this.w];
-            },
-            set: function (v) {
-                this.x = v[0];
-                this.x = v[1];
-                this.x = v[2];
-                this.x = v[3];
             },
             enumerable: true,
             configurable: true
